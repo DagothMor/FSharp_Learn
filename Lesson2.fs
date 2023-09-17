@@ -1,6 +1,4 @@
-﻿module Lesson2
-
-let g (n) = n+5; // -- int -> int
+﻿let g (n) = n+5; // -- int -> int
 
 let gg(n) = fun n -> n+5
 
