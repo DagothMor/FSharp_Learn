@@ -14,7 +14,7 @@ let main argv =
     let g (n) = n+5; // -- int -> int
 
     let gg = fun n -> n+5
-    let h(x,y: float) = System.Math.Sqrt(x+y);
+    let h(x,y: float) = System.Math.Sqrt(x*x+y*y);
     // 
     let message = h (3.0,6.0) // Call the function
     printfn "%f" message

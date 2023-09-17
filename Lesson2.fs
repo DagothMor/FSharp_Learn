@@ -2,4 +2,4 @@
 
 let gg = fun n -> n+5
 
-let h(x,y: float) = System.Math.Sqrt(x+y);
+let h(x,y: float) = System.Math.Sqrt(x**2.0 + y**2.0);
