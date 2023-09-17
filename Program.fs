@@ -6,8 +6,15 @@ open System
 let from whom =
     sprintf "from %s" whom
 
+
+
+
 [<EntryPoint>]
 let main argv =
-    let message = from "F#" // Call the function
-    printfn "Hello world %s" message
+    let g (n) = n+5; // -- int -> int
+    let gg(n) = fun n -> n+5
+    let h(x,y: float) = System.Math.Sqrt(x+y);
+    // 
+    let message = h (3.0,6.0) // Call the function
+    printfn "%f" message
     0 // return an integer exit code

@@ -1,6 +1,7 @@
-﻿// 4.3.1
-printfn "Hello, World!!!"
+﻿module Lesson1
+//// 4.3.1
+//printfn "Hello, World!!!"
 
-// 4.3.2
-let x = 2.1 + 3.2 * (8.0 / 4.0 + 1.3)
-printfn "%f" x
+//// 4.3.2
+//let x = 2.1 + 3.2 * (8.0 / 4.0 + 1.3)
+//printfn "%f" //x
