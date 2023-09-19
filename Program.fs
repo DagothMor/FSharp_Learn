@@ -11,11 +11,22 @@ let from whom =
 
 [<EntryPoint>]
 let main argv =
-    let g (n) = n+5; // -- int -> int
+    // Напишите функцию, использующую сопоставление с образцом, которая получает на вход номер месяца (1-январь .. 12-декабрь) и возвращает целое число -- количество дней в нём, или 0, если номер месяца некорректный.
+    let days_in_month = function 
+        | 1  -> 31
+        | 2  -> 28
+        | 3 -> 31
+        | 4  -> 30
+        | 5  -> 31
+        | 6 -> 30
+        | 7  -> 31
+        | 8  -> 31
+        | 9 -> 30
+        | 10  -> 31
+        | 11  -> 30
+        | 12 -> 31
+        | _ -> 0
 
-    let gg = fun n -> n+5
-    let h(x,y: float) = System.Math.Sqrt(x*x+y*y);
-    // 
-    let message = h (3.0,6.0) // Call the function
-    printfn "%f" message
+     // Call the function
+    printfn "%d" (days_in_month 111)
     0 // return an integer exit code
