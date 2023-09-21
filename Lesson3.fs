@@ -1,4 +1,6 @@
-﻿let days_in_month = function 
+﻿module Lesson3
+
+let days_in_month = function 
 | 1  -> 31
 | 2  -> 28
 | 3 -> 31
