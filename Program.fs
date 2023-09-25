@@ -11,45 +11,31 @@ let from whom =
 
 [<EntryPoint>]
 let main argv =
-    // 7.1.1. Напишите рекурсивную функцию fibo: int -> int,
-    // где fibo(n) вычисляет n-е число Фибоначчи (n >= 0, fibo(0)=0, fibo(1)=1, ...).
-    // Последовательность Фибоначчи начинается с двух значений 0,1, а n-й элемент равен
-    // сумме n-1 - го и n-2 - го элементов: 0,1,1,2,3,5,8,13,...
-    let rec fibo = function
-        | 0 -> 0
-        | 1 -> 1
-        | 2 -> 1
-        | n -> fibo (n-1) + fibo (n-2) 
+    
+    // 16.1. Напишите функцию-предикат notDivisible: int * int -> bool,
+    // где notDivisible(n,m) возвращает true, если число n -- делитель числа m.
 
-    // 7.1.2. Напишите рекурсивную функцию sum: int -> int, 
-    // где sum(n) вычисляет сумму первых n чисел ряда 1 + 2 + 3 + ... + n-1 + n
-    // Параметр n -- натуральное число.
+    let notDivisible (n,m) = 
+        m % n = 0
 
-    let rec sum = function 
-        | 0 -> 0
-        | n -> n + sum (n-1)
+    // 16.2. Напишите функцию-предикат prime: int -> bool,
+    // где prime(n) возвращает true, если n -- простое число.
+    let rec prime(num, div) =
+        match num, div with
+        | n,d when d = 1 -> true
+        | n,d when n%d = 0 -> false
+        | n,d -> prime(n,d - 1)
 
-    let rec sum2 = function 
-    | (m,0) -> m 
-    | (m,n) -> m + n + sum2(m,n-1)
+    let prime(num) =
+        let maxDiv = Math.Sqrt(float num);
+        if num < 2 then
+            false
+        else
+            prime(num, int maxDiv)
+       
         
 
 
-    let days_in_month = function 
-        | 1  -> 31
-        | 2  -> 28
-        | 3 -> 31
-        | 4  -> 30
-        | 5  -> 31
-        | 6 -> 30
-        | 7  -> 31
-        | 8  -> 31
-        | 9 -> 30
-        | 10  -> 31
-        | 11  -> 30
-        | 12 -> 31
-        | _ -> 0
-
      // Call the function
-    printfn "%d" (sum2 (5,4))
+    printfn "%b" (prime(808))
     0 // return an integer exit code
