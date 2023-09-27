@@ -1,8 +1,8 @@
 ﻿// 17.1
 let rec pow(s,n) = 
-    match s,n with
+    match string s,n with
     | s,n when n < 1 -> ""
-    | s,n -> string s + pow(s,(n-1))
+    | s,n -> s + pow(s,(n-1))
 
 // 17.2
 let rec isIthChar(s,n,c) = 

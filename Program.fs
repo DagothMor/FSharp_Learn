@@ -38,9 +38,9 @@ let main argv =
 
     // 17.1 Напишите функцию pow: string * int -> string, где pow(s,n) выдаёт строку s, повторенную n раз.
     let rec pow(s,n) = 
-        match s,n with
+        match string s,n with
         | s,n when n < 1 -> ""
-        | s,n -> string s + pow(s,(n-1))
+        | s,n -> s + pow(s,(n-1))
     
     // 17.2 Напишите функцию-предикат isIthChar: string * int * char -> bool, где isIthChar(s,n,c) проверяет, равен ли n-й (начиная с нуля) символ строки s символу c.
     let rec isIthChar(s,n,c) = 
@@ -61,7 +61,7 @@ let main argv =
                 else 0 + occFromIth(s,(n+1),c)
 
      // Call the function
-    printfn "%s" (pow("kakashki",2))
+    printfn "%s" (pow("asd",0))
     0 // return an integer exit code
     //
     //| n when s.[n] = c -> 1 + occFromIth((s.Substring(1)),(n+1),c)
