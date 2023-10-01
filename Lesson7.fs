@@ -11,8 +11,8 @@ let unvat (n) (x) =
 
 // 20.3.3
 let rec min f =
-    let result = f 1
-    if result = 0 then
-        1
-    else
-        min f
+    let rec check n =
+        if f n = 0 then n
+        elif f n > 0 then check (n - 1)
+        else check (n + 1)
+    check 1

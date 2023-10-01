@@ -53,15 +53,12 @@ let main argv =
                 then 1 + occFromIth(s,(n+1),c) 
                 else 0 + occFromIth(s,(n+1),c)
     
-    // 20.3.1. Напишите функцию vat: int -> float -> float, так что vat n x увеличивает x на n процентов (0 <= n <= 100).
     let vat1 n x = 
         if n < 0 || n > 100 then x
         else x + (x * (float n / 100.0))
 
-    // 20.3.2. Напишите функцию unvat: int -> float -> float такую, что
-    // unvat n (vat n x) = x
     let unvat2 n x = 
-        let y = vat n x
+        let y = vat1 n x
         let z = y
         y - ((y * float n) / 100.0)
 
@@ -73,15 +70,19 @@ let main argv =
         let percentage = float n / 100.0
         x / (1.0 + percentage)
 
-    let rec min f =
-        let result = f 1
-        if result = 0 then
-            1
-        else
-            min f
+    let f n = 
+        n+5
 
+    let rec min f =
+        let rec check n =
+            if f n = 0 then n
+            elif f n > 0 then check (n - 1)
+            else check (n + 1)
+        check 1
+
+    let myFunction x = x + 1
     // Call the function
-    printfn "%f" (unvat2 10 (vat1 10 100.0))
+    printfn "%d" (min (myFunction))
     0 // return an integer exit code
     //
     //| n when s.[n] = c -> 1 + occFromIth((s.Substring(1)),(n+1),c)
