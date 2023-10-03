@@ -1,4 +1,4 @@
-﻿
+﻿module Lesson7
 // 20.3.1
 let vat (n) (x) =
     let percentage = float n / 100.0

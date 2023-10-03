@@ -81,6 +81,21 @@ let main argv =
         check 1
 
     let myFunction x = x + 1
+    //_____________________________________________________
+
+    //let f(x,y)=
+    //    x*y
+        
+    //let h (x,y) = f(x,y)
+    
+    //let g (y) = h y
+
+    //let curry f = g 
+
+    let curry f = function x -> (function y -> f(x, y))
+    
+    let uncurry f = function (x, y) -> f x y
+
     // Call the function
     printfn "%d" (min (myFunction))
     0 // return an integer exit code
