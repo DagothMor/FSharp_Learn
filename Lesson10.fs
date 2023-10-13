@@ -1,4 +1,5 @@
-﻿type TimeOfDay = { hours: int; minutes: int; f: string }
+﻿module Lesson10
+type TimeOfDay = { hours: int; minutes: int; f: string }
 
 let getminutes (x:TimeOfDay) = 
     if x.f = "PM"

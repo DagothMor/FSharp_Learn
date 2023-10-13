@@ -6,21 +6,27 @@ open System
 let from whom =
     sprintf "from %s" whom
 
-type TimeOfDay = { hours: int; minutes: int; f: string }
+type F = 
+      | AM
+      | PM
+
+type TimeOfDay = { hours: int; minutes: int; f: F }
+
 
 
 [<EntryPoint>]
 let main argv =
     
+
     let getminutes (x:TimeOfDay) = 
-        if x.f = "PM"
+        if x.f = F.PM
         then x.hours*60 + 720 + x.minutes
         else x.hours*60 + x.minutes
 
     let (.>.) x y = (getminutes x) > (getminutes y)
     // Call the function
-    let a = {hours= 10; minutes= 10; f= "AM"}
-    let b = {hours= 10; minutes= 10; f= "PM"}
+    let a = {hours= 10; minutes= 10; f= F.AM}
+    let b = {hours= 10; minutes= 10; f= F.PM}
     let ans = a .>. b
     0 // return an integer exit code
     //
