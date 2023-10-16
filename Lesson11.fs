@@ -1,4 +1,5 @@
-﻿type F = 
+﻿module Lesson11
+type F = 
     | AM
     | PM
 
