@@ -12,7 +12,7 @@ type F =
 
 type TimeOfDay = { hours: int; minutes: int; f: F }
 
-//exception LengthOfTwoArraysAreNotEqual
+exception LengthOfTwoArraysAreNotEqual
 
 [<EntryPoint>]
 let main argv =
@@ -57,19 +57,19 @@ let main argv =
         event,odd
 
     // 39.5
-    let rec zip (xs1) (xs2) =
+    let rec zip (xs1,xs2) =
         match xs1, xs2 with
         | [], [] -> []
         | [], _ -> raise LengthOfTwoArraysAreNotEqual
         | _, [] -> raise LengthOfTwoArraysAreNotEqual
-        | x :: xs, y :: ys -> (x, y) :: (zip xs ys)
+        | x :: xs, y :: ys -> (x, y) :: (zip (xs,ys))
 
     let rec mul = function
         | [] -> 0
         | [x] -> x
         | head :: tail -> head * mul tail
 
-    let ans = zip [31..60] [1..30]
+    let ans = zip ([31..60],[1..30])
 
 
     0 // return an integer exit code

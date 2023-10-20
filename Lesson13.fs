@@ -1,4 +1,5 @@
-﻿
+﻿module Lesson13
+
 exception LengthOfTwoArraysAreNotEqual
 
 
@@ -37,16 +38,16 @@ let rec multiplicity x xs =
             multiplicity x tail
 
 // 39.4
-let rec split (lst) =
-    let odd = rmodd(lst);
-    let event = getEvent(lst);
+let rec split (xs) =
+    let odd = rmodd(xs);
+    let event = getEvent(xs);
     event,odd
 
 // 39.5
-let rec zip (xs1) (xs2) =
+let rec zip (xs1,xs2) =
     match xs1, xs2 with
     | [], [] -> []
     | [], _ -> raise LengthOfTwoArraysAreNotEqual
     | _, [] -> raise LengthOfTwoArraysAreNotEqual
-    | x :: xs, y :: ys -> (x, y) :: (zip xs ys)
+    | x :: xs, y :: ys -> (x, y) :: (zip (xs,ys))
 
