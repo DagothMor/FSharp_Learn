@@ -1,5 +1,4 @@
-﻿module Lesson13
-
+﻿
 exception LengthOfTwoArraysAreNotEqual
 
 
