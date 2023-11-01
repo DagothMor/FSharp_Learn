@@ -183,6 +183,26 @@ let main argv =
         | [] -> []
         | x::xs -> revrev xs @ [x |> List.rev]
 
-    let ans = plus ([0;-1;-2;3;3;3;2;4],[1;2;3;4])
+
+    // 41.4.1. Напишите функцию list_filter, которая реализует стандартную функцию List.filter, с помощью List.foldBack.
+
+    let list_filter f xs =
+        List.foldBack (fun x acc -> if f x then x::acc else acc) xs []
+
+    // 41.4.2. Напишите функцию sum(p, xs), где p -- предикат int -> bool, и xs -- список целых.
+    //Функция возвращает сумму тех элементов xs, для которых предикат истинен.
+    //Реализуйте sum с помощью List.fold или List.foldBack.
+    let sum (p, xs) =
+        List.foldBack (+) (List.foldBack (fun x acc -> if p x then x::acc else acc) xs []) 0
+         
+
+
+    // 41.4.3. Напишите функцию revrev, которая получает на вход список списков, и перевёртывает как порядок вложенных списков, так и порядок элементов внутри каждого вложенного списка.
+    
+    //revrev [[1;2];[3;4;5]] = [[5;4;3];[2;1]]
+    // Реализуйте revrev с помощью List.fold или List.foldBack.
+    let revrev lst =
+        List.fold (fun head tail -> (tail |> List.rev) ::head ) [] lst
+    let ans = revrev [[1;2];[3;4;5];[6;7;8];[9;10;11]]
     0 // return an integer exit code
     

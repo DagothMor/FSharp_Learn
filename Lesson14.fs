@@ -45,10 +45,10 @@ let rec intersect (xs1, xs2) =
 let rec plus (xs1, xs2) =
     match xs1,xs2 with
     | [], [] -> []
-    | [], hd2::tl2 -> plus(insert(xs1,hd2),tl2)
+    | [], hd2 ::tl2 -> plus(insert(xs1, hd2), tl2)
     | _, [] -> xs1
     //| hd1::tl1,_ when List.contains hd1 xs2 -> hd1 :: plus (insert(xs1,hd1),Remove (xs2,hd1))
-    | _,hd2::tl2 -> plus(insert(xs1,hd2),tl2)
+    | _, hd2 ::tl2 -> plus(insert(xs1, hd2), tl2)
 
 // 40.2.5
 let rec minus (xs1, xs2) =
@@ -86,4 +86,4 @@ let rec sort lst =
 let rec revrev lst =
     match lst with
     | [] -> []
-    | x::xs -> revrev xs @ [x |> List.rev]
+    | x :: xs -> revrev xs @ [x |> List.rev]
