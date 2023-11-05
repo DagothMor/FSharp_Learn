@@ -203,6 +203,21 @@ let main argv =
     // Реализуйте revrev с помощью List.fold или List.foldBack.
     let revrev lst =
         List.fold (fun head tail -> (tail |> List.rev) ::head ) [] lst
-    let ans = revrev [[1;2];[3;4;5];[6;7;8];[9;10;11]]
+
+
+    // Напишите функцию allSubsets, получающую целочисленные параметры n и k, и выдающую множество всех подмножеств множества
+    // {1, 2, ..., n}, в которых ровно k элементов (0 <= k <= n).
+    // 42.3
+    let rec allSubsets n k =
+        if n < 0 || k < 0 || k > n then
+            Set.empty
+        elif k = 0 then
+            Set.singleton Set.empty
+        else
+            let subsetsWithoutN = allSubsets (n - 1) k
+            let subsetsWithN = allSubsets (n - 1) (k - 1)
+            Set.union subsetsWithoutN (Set.map (Set.add n) subsetsWithN)
+
+    let ans = allSubsets 5 3
     0 // return an integer exit code
     
