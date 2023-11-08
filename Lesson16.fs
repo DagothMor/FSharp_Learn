@@ -1,4 +1,5 @@
-﻿// 42.3
+﻿module Lesson16
+// 42.3
 let rec allSubsets n k =
     if n < 0 || k < 0 || k > n then
         Set.empty
