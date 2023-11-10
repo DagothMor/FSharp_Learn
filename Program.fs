@@ -240,12 +240,12 @@ let main argv =
         let mutable a = 0
         let mutable b = 1
     
-        for i = 0 to n - 1 do
+        for i = 0 to n-1 do
             let temp = a + b
             a <- b
             b <- temp
         a
 
-    let ans = allSubsets 5 3
+    let ans = fibo 6
     0 // return an integer exit code
     
