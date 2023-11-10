@@ -228,6 +228,24 @@ let main argv =
         let list = Map.toList m
         start (list, key)
 
+    // 47.4.1
+    let f n =
+        let mutable result = 1
+        for i = 2 to n do
+            result <- result * i
+        result
+    
+    // 47.4.2
+    let fibo n =
+        let mutable a = 0
+        let mutable b = 1
+    
+        for i = 0 to n - 1 do
+            let temp = a + b
+            a <- b
+            b <- temp
+        a
+
     let ans = allSubsets 5 3
     0 // return an integer exit code
     
