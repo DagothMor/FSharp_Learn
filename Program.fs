@@ -246,6 +246,41 @@ let main argv =
             b <- temp
         a
 
-    let ans = fibo 6
+    // 48.4.1. Напишите две версии функции вычисления n-го числа Фибоначчи Fn.
+    // 1. fibo1: int -> int -> int -> int, с двумя параметрами-аккумуляторами n1 и n2, где
+    // fibo1 n n1 n2 = Fn, n1 = второй начальный элемент последовательности, и n2 -- самый первый начальный.
+
+    let factorial n =
+        let rec f x a =
+            if x <= 1 then a
+            else f (x - 1) (a * x)
+        f n 1
+
+    // 48.4.1
+    let rec fibo1 n n1 n2 = 
+        if n = 1 then n1
+        else fibo1 (n-1) (n1+n2) (n1) 
+        
+    // 2. fibo2: int -> (int -> int) -> int , где первый параметр -- n, а последний параметр -- функция-продолжение.
+
+    // 48.4.2
+    //let rec fibo2 n c = 
+    //    if n = 1 then c 1
+    //    else fibo2 (n-1) (fun f -> c(n * f))
+    
+    let rec fibo2 n c =
+        match n with
+        | 0 -> c 0
+        | 1 -> c 1
+        | _ -> fibo2 (n-1) (fun fn1 -> fibo2 (n-2) (fun fn2 -> c (fn1 + fn2)))
+
+
+    let bigList n k =
+      let rec f n acc =
+        if n = 0 then k (acc)
+        else f (n-1) (1::acc)
+      f n []
+
+    let ans = bigList 230000 id
     0 // return an integer exit code
     

@@ -1,4 +1,5 @@
-﻿// 47.4.1
+﻿module Lesson18
+// 47.4.1
 let f n =
     let mutable result = 1
     for i = 2 to n do
