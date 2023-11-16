@@ -281,6 +281,34 @@ let main argv =
         else f (n-1) (1::acc)
       f n []
 
-    let ans = bigList 230000 id
+    // 49.5.1. Определите последовательность чётных положительных чисел.
+    let even_seq = Seq.initInfinite (fun i -> i+i)
+
+    // 49.5.2. Определите последовательность факториалов неотрицательных целых чисел 1,1,2,6,...,n!
+
+    let rec factorial n = 
+      if n = 0 then 
+        1
+      else 
+        (factorial (n - 1)) * n
+
+    let fac_seq = Seq.initInfinite (fun i -> factorial i)
+
+    // 49.5.3. Определите последовательность 0, -1, 1, -2, 2, -3, 3, ...
+    let rec sequence n =
+        match n with
+        | 0 -> 0
+        | _ ->
+            //let prevSeq = sequence (n - 1)
+            if n % 2 = 0 then
+                n/2
+            else
+                -(n+1)/2
+
+    let seq_seq = Seq.initInfinite (fun i -> sequence i)
+
+    
+    let sqr_cache = Seq.take 10 seq_seq |> Seq.toList
+    //let ans = Seq.nth 5 even_seq
     0 // return an integer exit code
     
