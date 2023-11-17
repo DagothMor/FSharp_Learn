@@ -16,7 +16,6 @@ let rec sequence n =
     match n with
     | 0 -> 0
     | _ ->
-        //let prevSeq = sequence (n - 1)
         if n % 2 = 0 then
             n/2
         else
