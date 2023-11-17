@@ -1,6 +1,6 @@
 ﻿
 // 49.5.1
-let even_seq = Seq.initInfinite (fun i -> i+i)
+let even_seq = Seq.initInfinite (fun i -> (i+1)*2)
 
 // 49.5.2
 let rec factorial n = 
