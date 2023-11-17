@@ -1,4 +1,5 @@
-﻿// 49.5.1
+﻿
+// 49.5.1
 let even_seq = Seq.initInfinite (fun i -> i+i)
 
 // 49.5.2
@@ -8,7 +9,7 @@ let rec factorial n =
     else 
       (factorial (n - 1)) * n
 
-  let fac_seq = Seq.initInfinite (fun i -> factorial i)
+let fac_seq = Seq.initInfinite (fun i -> factorial i)
 
 // 49.5.3
 let rec sequence n =
