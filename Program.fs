@@ -292,7 +292,7 @@ let main argv =
       else 
         (factorial (n - 1)) * n
 
-    let fac_seq = Seq.initInfinite (fun i -> factorial i)
+    let fac_seq1 = Seq.initInfinite (fun i -> factorial i)
 
     // 49.5.3. Определите последовательность 0, -1, 1, -2, 2, -3, 3, ...
     let rec sequence n =
@@ -307,8 +307,28 @@ let main argv =
 
     let seq_seq = Seq.initInfinite (fun i -> sequence i)
 
+    let fac_seq =
+        let rec f n acc = seq {
+            if n <= 1 then
+                yield 1
+            else 
+                yield acc
+            yield! f (n+1) (acc*(n+1))}
+        f 0 1
     
-    let sqr_cache = Seq.take 10 seq_seq |> Seq.toList
-    //let ans = Seq.nth 5 even_seq
+    // 49.5.3
+    
+    let seq_seq =
+        let rec sequence n = seq {
+            if n % 2 = 0 then
+                yield (n / 2)
+            else 
+                yield (-(n+1)/2)
+            yield! sequence (n+1)
+            }
+        sequence 0
+        
+    
+    let sqr_cache = Seq.take 10 fac_seq |> Seq.toList
     0 // return an integer exit code
     

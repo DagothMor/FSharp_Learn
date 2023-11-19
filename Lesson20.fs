@@ -1,4 +1,4 @@
-﻿
+﻿module Lesson20
 // 49.5.1
 let even_seq = Seq.initInfinite (fun i -> (i+1)*2)
 
