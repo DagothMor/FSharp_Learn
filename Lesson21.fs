@@ -1,4 +1,5 @@
-﻿// 50.2.1
+﻿module Lesson21
+// 50.2.1
 let fac_seq =
     let rec f n acc = seq {
         if n <= 1 then
